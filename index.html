@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ヴァンテージポイント株式会社 インタラクティブ・インフォグラフィック</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #0A2463;
+        }
+        .text-shadow {
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        .card {
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 2.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flow-arrow {
+            font-size: 2.5rem;
+            color: #3E92CC;
+            line-height: 1;
+            margin: 0.5rem 0;
+            font-weight: 900;
+        }
+        .career-step {
+            position: relative;
+            padding-left: 2.5rem;
+            padding-bottom: 2rem;
+            border-left: 4px solid #3E92CC;
+        }
+        .career-step:last-child {
+            border-left: 4px solid transparent;
+            padding-bottom: 0;
+        }
+        .career-step::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 4px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #3E92CC;
+            border: 4px solid #FFFFFF;
+        }
+        .section-title {
+             font-size: 2.25rem;
+             line-height: 2.5rem;
+             font-weight: 900;
+             text-align: center;
+             color: #FFFFFF;
+             margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            color: #D8D8D8;
+            max-width: 48rem;
+            margin: 0 auto 3rem auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-6xl">
+
+        <header class="text-center pt-12 pb-16">
+            <h1 class="text-4xl md:text-5xl font-black text-white text-shadow leading-tight">ヴァンテージポイント株式会社</h1>
+            <p class="text-xl md:text-2xl text-[#3E92CC] font-bold mt-3 text-shadow">個のアイデンティティを確立する、<br class="md:hidden">唯一無二のプラットフォーム</p>
+        </header>
+
+        <main>
+            <section id="mission" class="mb-24 text-center">
+                <div class="card bg-[#1E56A0] text-white p-8 md:p-12">
+                    <h2 class="text-xl font-bold mb-4 text-[#D8D8D8]">1. 私たちの原点：全ての事業は、一つの問いから始まる</h2>
+                    <p class="text-3xl md:text-4xl font-extrabold text-white leading-tight">
+                        「働く一人ひとりが、ビジネスを通じて<br>自らのアイデンティティを確立できるか？」
+                    </p>
+                    <p class="mt-6 text-base md:text-lg text-left text-[#D8D8D8] max-w-3xl mx-auto space-y-4">
+                        <span>これが、私たちヴァンテージポイント株式会社の全ての事業活動の根幹をなす、唯一無二の問いです。私たちは、単に利益を追求する事業体ではありません。働く個人の尊厳と成長を最も重要な価値と捉え、その実現に貢献することを使命としています。もし、ある事業がこの根本的な問いに対して、明確に「Yes」と答えられないのであれば、それは私たちの選択肢にはなり得ません。</span>
+                        <span>私たちは、フリーランスという働き方を選択した人々を、代替可能な「労働力」や「リソース」として捉えることを断固として拒否します。一人ひとりが持つ独自の才能、経験、そして情熱こそが、新たな価値を創造する源泉であると信じています。だからこそ、私たちはフリーランスが事業の「主役」として輝き、プロフェッショナルとしてのアイデンティティを確立できる事業だけを、情熱を持って創造し続けます。</span>
+                    </p>
+                </div>
+            </section>
+            
+            <section id="problem" class="mb-24">
+                <h2 class="section-title">2. 私たちが向き合う社会課題：<br class="md:hidden">自由の裏側にある「見えない壁」</h2>
+                <p class="section-subtitle">フリーランスという働き方の輝かしいイメージの裏で、多くの才能ある人々がキャリアの停滞や精神的な困難に直面しているという現実。その根底には、働く個人の幸福度と自己肯定感を揺るがす、深刻で構造的な課題、「見えない壁」が存在します。</p>
+                <div class="grid md:grid-cols-1 gap-8">
+                    <div class="card">
+                        <h3 class="flex items-center text-2xl font-bold text-[#0A2463] mb-3"><span class="text-4xl mr-4" aria-hidden="true">❓</span>アイデンティティの喪失</h3>
+                        <p class="text-gray-600 leading-relaxed">組織という帰属先を離れ、様々なプロジェクトを転々とする中で、「会社の看板」ではなく自分自身の名前で評価されるようになります。しかしそれは同時に、「自分は何のプロフェッショナルなのか」「自分の市場価値は何か」という問いに常に晒され続けることを意味します。明確なキャリアパスやフィードバックの機会が乏しい環境は、自己認識を曖昧にし、プロフェッショナルとしてのアイデンティティを見失わせる危険を孕んでいます。</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="flex items-center text-2xl font-bold text-[#0A2463] mb-3"><span class="text-4xl mr-4" aria-hidden="true">🤝</span>貢献実感の希薄化</h3>
+                        <p class="text-gray-600 leading-relaxed">プロジェクト単位で業務を請け負う働き方は、時に最終的な成果やエンドユーザーの喜びから切り離されがちです。自分が関わった仕事が、社会や顧客に対してどのような価値をもたらしたのかを実感しにくくなることで、仕事へのやりがいやモチベーションは徐々に薄れていきます。この貢献実感の欠如は、働く喜びを奪う静かなる脅威です。</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="flex items-center text-2xl font-bold text-[#0A2463] mb-3"><span class="text-4xl mr-4" aria-hidden="true">🌱</span>成長実感の停滞</h3>
+                        <p class="text-gray-600 leading-relaxed">企業に所属していれば得られたはずの体系的な研修、上司や同僚からのフィードバック、挑戦的な役割への抜擢といった機会は、フリーランスにはほとんど与えられません。日々の業務に追われる中で、意識的に自己投資をしなければ、スキルは陳腐化し、キャリアは停滞します。常に自らを律し、学び続けなければならないプレッシャーと、成長を客観的に測る指標の不在が、深刻な不安を生み出します。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="ecosystem" class="mb-24 card p-8 md:p-12">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-[#0A2463] text-center">3. 私たちの答え：循環型「BtoCtoB」エコシステム</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-4xl mx-auto text-center mb-12">「見えない壁」を乗り越えるため、私たちは単一のサービスではなく、関わる全てのプレイヤーが永続的に価値を高め合う、持続可能な独自の循環型エコシステムを構築しました。</p>
+                <div class="flex flex-col md:flex-row items-center justify-around text-center space-y-8 md:space-y-0 md:space-x-8 mb-12">
+                    <div class="flex flex-col items-center p-4 w-60">
+                        <div class="w-32 h-32 bg-[#1E56A0] rounded-full flex flex-col items-center justify-center text-white p-4 shadow-lg">
+                            <span class="font-bold">Vantage Point</span><span class="text-sm">(The Enabler)</span>
+                        </div>
+                        <p class="mt-4 font-semibold text-lg text-[#1E56A0]">実現者としての私たち</p>
+                        <p class="mt-2 text-sm text-gray-500">教育、ツール、コミュニティを提供し、フリーランスが輝く舞台を整えます。</p>
+                    </div>
+                    <div class="flow-arrow transform md:rotate-0">🔄</div>
+                    <div class="flex flex-col items-center p-4 w-60">
+                        <div class="w-32 h-32 bg-[#3E92CC] rounded-full flex flex-col items-center justify-center text-white p-4 shadow-lg">
+                            <span class="font-bold">フリーランス</span><span class="text-sm">(The Protagonist)</span>
+                        </div>
+                        <p class="mt-4 font-semibold text-lg text-[#3E92CC]">主役としての個人</p>
+                        <p class="mt-2 text-sm text-gray-500">エコシステムの主役として、高い付加価値を提供します。</p>
+                    </div>
+                     <div class="flow-arrow transform md:rotate-0">🔄</div>
+                    <div class="flex flex-col items-center p-4 w-60">
+                         <div class="w-32 h-32 bg-[#1E56A0] rounded-full flex flex-col items-center justify-center text-white p-4 shadow-lg">
+                             <span class="font-bold">クライアント企業</span><span class="text-sm">(The Partner)</span>
+                        </div>
+                        <p class="mt-4 font-semibold text-lg text-[#1E56A0]">パートナーとしての顧客</p>
+                        <p class="mt-2 text-sm text-gray-500">フリーランスが成長し、価値を発揮する場を提供します。</p>
+                    </div>
+                </div>
+                <div class="mt-8 text-center bg-blue-50 p-6 rounded-lg">
+                    <p class="text-lg font-bold text-[#0A2463]">この<strong class="text-[#3E92CC]">「個の育成（ウルサポ）」</strong>と<strong class="text-[#3E92CC]">「企業への価値提供」</strong>の強力な好循環こそが、フリーランス、クライアント、そして私たち自身の価値を永続的に高め続ける競争力の源泉です。</p>
+                </div>
+            </section>
+            
+            <section id="urusapo" class="mb-24 card p-8 md:p-12">
+                 <h2 class="text-3xl md:text-4xl font-extrabold text-[#0A2463] text-center">4. 個の成長エンジン：「ウルサポ」の圧倒的な提供価値</h2>
+                 <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto text-center mb-12">月額3万円で参加できる「挑戦と成長のコミュニティ」。フリーランスが「見えない壁」を自らの力で乗り越え、真の自立と持続的な成功を掴むために必要な全てがここにあります。</p>
+                <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="font-bold text-xl text-[#1E56A0]">高付加価値な商材を、自らの武器に</h4>
+                            <p class="text-gray-600 mt-2 leading-relaxed">フリーランスが個人で開拓するには難しい、市場で高く評価される法人向けサービス（採用支援、DX支援など）を、自らの武器としてクライアントに提案する権利を得られます。これにより、単純な作業代行ではなく、企業の経営課題に踏み込むパートナーとしてのポジションを確立できます。</p>
+                        </div>
+                        <div>
+                           <h4 class="font-bold text-xl text-[#1E56A0]">100%価値提供に集中できる、万全の活動サポート</h4>
+                           <p class="text-gray-600 mt-2 leading-relaxed">フリーランスが最も時間を奪われがちな、営業リストの作成や契約手続き、請求業務といったバックオフィス業務を私たちが代行します。これにより、煩雑な作業から解放され、自身の専門性を活かした「価値提供」そのものに100%集中できる環境と、安定した活動基盤というセーフティネットを構築します。</p>
+                        </div>
+                         <div>
+                           <h4 class="font-bold text-xl text-[#1E56A0]">アイデンティティを育む、温かなコミュニティ</h4>
+                           <p class="text-gray-600 mt-2 leading-relaxed">フリーランス最大の敵である「孤立」を、私たちはコミュニティの力で解消します。メンバー同士が日常的に情報交換し、互いの成功を祝い、困難に際しては助け合う文化がここには根付いています。さらに、私たちは共通の「コアバリュー」を掲げ、それに基づいた対話を通じて、メンバー一人ひとりが「自分は何者であるべきか」という問いを探求し、揺るぎないプロフェッショナルとしてのアイデンティティを確立する環境を提供します。</p>
+                        </div>
+                    </div>
+                    <div class="sticky top-8">
+                        <h4 class="font-bold text-xl text-center text-[#1E56A0] mb-4">時代を先取る、圧倒的な量の研修プログラム</h4>
+                        <p class="text-center text-gray-600 mb-4">市場価値を飛躍的に高めるため、他に類を見ない学習環境を提供。「成長の停滞」という壁を打ち破ります。</p>
+                        <div class="chart-container h-64 md:h-80">
+                            <canvas id="urusapoChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="business-domain" class="mb-24">
+                <h2 class="section-title">5. 理念によって選ばれた事業領域</h2>
+                <p class="section-subtitle">私たちの事業は、フリーランスがクライアントから単なる「業者」としてではなく、名前で呼ばれ、感謝される「企業のパートナー」として活躍できる、すなわち個人のアイデンティティが色濃く形成される領域に特化しています。</p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="card">
+                        <h3 class="text-2xl font-bold text-[#0A2463] mb-4">採用支援事業：「人事のプロ」としてのアイデンティティ</h3>
+                        <p class="text-gray-600 leading-relaxed">企業の未来を創る「採用」という経営の根幹に関わることで、フリーランスは単なる採用代行者ではなく、クライアントのビジョンを共有し、組織文化を共に創り上げる「経営課題解決のパートナー」としてのアイデンティティを確立します。</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-2xl font-bold text-[#0A2463] mb-4">DX支援事業：「変革のコンサルタント」としてのアイデンティティ</h3>
+                        <p class="text-gray-600 leading-relaxed">企業の非効率な業務プロセスをテクノロジーの力で変革することで、フリーランスは単なるツール導入者ではなく、クライアントの働き方を根本から改善し、生産性向上に貢献する「業務変革のコンサルタント」としてのアイデンティティを確立します。</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="advantage" class="mb-24">
+                 <h2 class="section-title">6. 私たちの競争優位性：<br class="md:hidden">成長をデザインする「組織化されたフリーランス」</h2>
+                 <p class="section-subtitle">私たちのエコシステム、そして事業モデル全体を支えている、最も深く、模倣することが極めて困難な競争優位性。それは、「全員がフリーランス」でありながら、強固な理念と仕組みによって「組織化されている」という、他に類を見ない独自の組織モデルです。</p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="card">
+                        <h3 class="text-2xl font-bold text-[#0A2463] mb-4">指揮系統のない、動機付けによるマネジメント</h3>
+                        <p class="text-gray-600 leading-relaxed">私たちの組織には、従来型の企業に存在するような、上意下達の指揮命令系統が存在しません。その代わりに、一人ひとりの「オーナーシップ」を尊重し、コーチングや自己決定理論に基づいたマネジメントを実践します。トップダウンの指示や管理によって人を動かすのではなく、個々の内発的な「やりたい」「成し遂げたい」という動機を引き出し、自律的な活動を促進することで、個人のパフォーマンスとエンゲージメントを最大化します。この仕組みが、圧倒的な俊敏性と、市場への深い共感、そして自律型人材を惹きつけるカルチャーを生み出しているのです。</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-2xl font-bold text-[#0A2463] mb-4">フリーランスから経営者へ：独自のキャリアラダー</h3>
+                        <p class="mb-6 text-gray-600 leading-relaxed">私たちは、フリーランスに「その先」のキャリアパスを明確に用意しています。このキャリアラダーは、メンバーが単独のプレイヤーとしてだけでなく、チームを率いて成果を最大化し、さらには支社という一つの事業体を運営する、リアルなマネジメント経験を積むことを可能にします。フリーランスという自由な立場を維持しながら、組織を動かし、より大きな価値を創造するリーダーシップを実践的に学ぶことができる。これは、野心と意欲に溢れる優秀な人材を惹きつけ、そして定着させ続ける、他にはない圧倒的な魅力であり、私たちの成長の原動力です。</p>
+                        <div class="relative">
+                           <div class="career-step">
+                               <h4 class="font-bold text-lg text-[#1E56A0]">フリーランス</h4>
+                               <p class="text-sm text-gray-500">個の専門性を磨き、価値を提供する</p>
+                           </div>
+                           <div class="career-step">
+                               <h4 class="font-bold text-lg text-[#1E56A0]">チームリーダー</h4>
+                               <p class="text-sm text-gray-500">チームを率い、成果を増幅させる</p>
+                           </div>
+                           <div class="career-step">
+                               <h4 class="font-bold text-lg text-[#1E56A0]">支社長</h4>
+                               <p class="text-sm text-gray-500">事業を運営し、経営を実践する</p>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="vision" class="mb-16 text-center">
+                 <div class="card bg-gradient-to-br from-[#1E56A0] to-[#3E92CC] text-white p-8 md:p-12">
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-8">7. ヴァンテージポイントが創造する未来</h2>
+                     <div class="grid md:grid-cols-2 gap-8 text-left mb-8">
+                         <div class="bg-white/20 p-6 rounded-lg backdrop-blur-sm">
+                            <h3 class="font-bold text-xl mb-2">フリーランスにとっての未来</h3>
+                            <p>ここは、目先の収入のためだけに疲弊する場ではありません。自らのアイデンティティを確立し、専門性を高め、仲間と共に成長しながら、持続可能で、高価値で、心から充実した独立キャリアを築くための、日本で最高のプラットフォームです。</p>
+                         </div>
+                         <div class="bg-white/20 p-6 rounded-lg backdrop-blur-sm">
+                             <h3 class="font-bold text-xl mb-2">クライアント企業にとっての未来</h3>
+                             <p>私たちは、単なる人材派遣や業務委託サービスではありません。高い専門性と当事者意識を持ったプロフェッショナル集団が、貴社の人材とテクノロジーの課題を根本から解決し、事業成長の基盤を支える、唯一無二の信頼できる戦略的パートナーです。</p>
+                         </div>
+                     </div>
+                     <p class="text-xl md:text-2xl font-bold leading-relaxed">私たちは、働く一人ひとりが、自らの仕事に誇りを持ち、<br><strong>「私は、何者であるか」</strong>という問いに、胸を張って答えられる社会を創造します。</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center py-8 border-t border-gray-700">
+            <p class="text-white font-bold text-xl mb-2">ヴァンテージポイント株式会社</p>
+            <a href="https://vantage-point.co.jp/" target="_blank" rel="noopener noreferrer" class="text-[#3E92CC] hover:text-white transition-colors">
+                https://vantage-point.co.jp/
+            </a>
+        </footer>
+    </div>
+
+    <script>
+        function wrapText(text, maxLength) {
+            if (typeof text !== 'string' || text.length <= maxLength) {
+                return text;
+            }
+            const words = text.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > maxLength && currentLine.length > 0) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            });
+            if (currentLine.trim().length > 0) {
+              lines.push(currentLine.trim());
+            }
+            return lines;
+        }
+
+        const urusapoCtx = document.getElementById('urusapoChart').getContext('2d');
+        new Chart(urusapoCtx, {
+            type: 'bar',
+            data: {
+                labels: ['動画教材 (500本以上)', 'ライブ研修 (月100回以上)'],
+                datasets: [{
+                    label: '提供コンテンツ数',
+                    data: [500, 100],
+                    backgroundColor: [
+                        '#1E56A0',
+                        '#3E92CC',
+                    ],
+                    borderColor: [
+                        '#FFFFFF',
+                        '#FFFFFF',
+                    ],
+                    borderWidth: 2,
+                    borderRadius: 4,
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: {
+                           color: 'rgba(216, 216, 216, 0.2)'
+                        },
+                        ticks: {
+                            color: '#0A2463',
+                            font: {
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    y: {
+                         grid: {
+                           display: false
+                        },
+                        ticks: {
+                            color: '#0A2463',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: '#0A2463',
+                        titleFont: {
+                            size: 16,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            size: 14
+                        },
+                        padding: 12,
+                        cornerRadius: 6,
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
