@@ -60,7 +60,7 @@
 
         /* Slide 4 Styles (Diagram) */
         .slide-4-container .content-area { padding: 1.5rem 3rem; align-items: center; }
-        .slide-4-container .eco-node { border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); width: 180px; height: 120px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 1rem; }
+        .slide-4-container .eco-node { border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); width: 220px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 1rem; border: 1px solid; }
         .slide-4-container .eco-node-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin-bottom: 0.5rem; }
         .slide-4-container .role-description { font-size: 0.85rem; line-height: 1.4; }
         
@@ -128,51 +128,40 @@
         </header>
         <main class="content-area">
             <div class="w-1/2 pr-8">
-                <div class="mb-4"><h2 class="text-xl font-semibold text-blue-800 mb-2">「見えない壁」を乗り越えるための循環型エコシステム</h2><p class="mb-3 text-gray-700">フリーランスが直面する課題を乗り越えるため、私たちは独自の循環型エコシステムを構築しました。これは三者が互いに価値を高め合う持続可能な仕組みです。</p></div>
+                <div class="mb-4"><h2 class="text-xl font-semibold text-blue-800 mb-2">価値創造のサイクル</h2><p class="mb-3 text-gray-700">私たちは、フリーランスが「企業のパートナー」として輝けるよう、独自の循環型エコシステムを構築しました。これは三者が互いに価値を高め合う持続可能な仕組みです。</p></div>
                 <div class="space-y-3"><div class="bg-blue-50 p-3 rounded-lg border border-blue-100"><div class="flex items-center mb-1"><div class="w-7 h-7 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-2 flex-shrink-0"><i class="fas fa-rocket"></i></div><p class="font-medium text-blue-800">ヴァンテージポイント (The Enabler)</p></div><p class="role-description text-gray-600 pl-9">フリーランスを支援・育成する「実現者」。高付加価値な商材、研修、コミュニティを提供します。</p></div><div class="bg-green-50 p-3 rounded-lg border border-green-100"><div class="flex items-center mb-1"><div class="w-7 h-7 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-2 flex-shrink-0"><i class="fas fa-user-tie"></i></div><p class="font-medium text-green-800">フリーランス (The Protagonist)</p></div><p class="role-description text-gray-600 pl-9">エコシステムの「主役」。専門スキルで挑戦し、成長と感謝の喜びを得ます。</p></div><div class="bg-purple-50 p-3 rounded-lg border border-purple-100"><div class="flex items-center mb-1"><div class="w-7 h-7 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mr-2 flex-shrink-0"><i class="fas fa-building"></i></div><p class="font-medium text-purple-800">クライアント企業 (The Partner)</p></div><p class="role-description text-gray-600 pl-9">単なる顧客ではなく「パートナー」。経営課題に寄り添う専門家を得られます。</p></div></div>
                 <div class="mt-4"><p class="text-sm text-gray-700">この<span class="font-medium text-gray-800">「育成」と「価値提供」</span>の循環こそが、三者の価値を永続的に高め続ける源泉です。</p></div>
             </div>
             <aside class="w-1/2 pl-4 flex items-center justify-center">
-                 <div class="relative w-full max-w-xl h-[450px]">
-                    <div class="grid grid-cols-2 grid-rows-2 w-full h-full pt-4 pb-8">
-                        <div class="col-span-2 justify-self-center self-start">
-                            <div class="eco-node bg-blue-50 border border-blue-200">
-                                <div class="eco-node-icon bg-blue-100 text-blue-600"><i class="fas fa-rocket text-2xl"></i></div>
-                                <p class="font-semibold text-blue-800">ヴァンテージ</p><p class="text-xs text-blue-600">The Enabler</p>
-                            </div>
-                        </div>
-                        <div class="justify-self-center self-end">
-                            <div class="eco-node bg-green-50 border border-green-200">
-                                <div class="eco-node-icon bg-green-100 text-green-600"><i class="fas fa-user-tie text-2xl"></i></div>
-                                <p class="font-semibold text-green-800">フリーランス</p><p class="text-xs text-green-600">The Protagonist</p>
-                            </div>
-                        </div>
-                        <div class="justify-self-center self-end">
-                             <div class="eco-node bg-purple-50 border border-purple-200">
-                                <div class="eco-node-icon bg-purple-100 text-purple-600"><i class="fas fa-building text-2xl"></i></div>
-                                <p class="font-semibold text-purple-800">クライアント</p><p class="text-xs text-purple-600">The Partner</p>
-                            </div>
-                        </div>
+                <div class="w-full flex flex-col items-center space-y-4">
+                    <div class="eco-node bg-blue-50 border-blue-200">
+                        <div class="eco-node-icon bg-blue-100 text-blue-600"><i class="fas fa-rocket text-2xl"></i></div>
+                        <p class="font-semibold text-blue-800 text-lg">ヴァンテージポイント</p>
+                        <p class="text-sm text-blue-600">The Enabler</p>
                     </div>
-                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-48">
-                         <div class="w-20 h-20 mx-auto rounded-full bg-white flex items-center justify-center border-4 border-gray-100 shadow-lg">
-                             <i class="fas fa-compass text-blue-600 text-3xl"></i>
-                         </div>
-                         <p class="font-semibold text-blue-800 mt-2">個のアイデンティティ<br>確立</p>
-                     </div>
-                     <div class="absolute top-[38%] left-[18%] text-center -translate-x-1/2 -translate-y-1/2">
-                         <p class="text-sm font-medium text-blue-700">支援と育成</p>
-                         <i class="fas fa-long-arrow-alt-down text-gray-400 text-4xl -rotate-45 transform"></i>
-                     </div>
-                     <div class="absolute bottom-[28%] left-1/2 -translate-x-1/2 text-center">
-                         <p class="text-sm font-medium text-green-700">専門性と貢献</p>
-                         <i class="fas fa-long-arrow-alt-right text-gray-400 text-4xl"></i>
-                     </div>
-                     <div class="absolute top-[38%] right-[5%] text-center -translate-y-1/2">
-                         <p class="text-sm font-medium text-purple-700">成長機会と信頼</p>
-                         <i class="fas fa-long-arrow-alt-up text-gray-400 text-4xl rotate-45 transform"></i>
-                     </div>
-                 </div>
+
+                    <div class="text-center">
+                        <i class="fas fa-long-arrow-alt-down text-gray-400 text-3xl"></i>
+                        <p class="text-sm font-medium text-blue-700 mt-1">支援と育成</p>
+                    </div>
+
+                    <div class="eco-node bg-green-50 border-green-200">
+                        <div class="eco-node-icon bg-green-100 text-green-600"><i class="fas fa-user-tie text-2xl"></i></div>
+                        <p class="font-semibold text-green-800 text-lg">フリーランス</p>
+                        <p class="text-sm text-green-600">The Protagonist</p>
+                    </div>
+
+                    <div class="text-center">
+                        <i class="fas fa-long-arrow-alt-down text-gray-400 text-3xl"></i>
+                        <p class="text-sm font-medium text-green-700 mt-1">専門性と貢献</p>
+                    </div>
+
+                    <div class="eco-node bg-purple-50 border-purple-200">
+                        <div class="eco-node-icon bg-purple-100 text-purple-600"><i class="fas fa-building text-2xl"></i></div>
+                        <p class="font-semibold text-purple-800 text-lg">クライアント企業</p>
+                        <p class="text-sm text-purple-600">The Partner</p>
+                    </div>
+                </div>
             </aside>
         </main>
         <footer class="footer flex justify-between items-center"><div class="text-sm">未来の働き方を創造する</div><div class="text-sm">2025年6月25日</div></footer>
